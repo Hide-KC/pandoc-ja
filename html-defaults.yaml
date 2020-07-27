@@ -1,0 +1,36 @@
+# 入力ファイル (配列形式で指定)
+input-files:
+  - content.md
+  
+# 出力ファイル (単一アイテムで指定)
+output-file: content.html
+
+# HTML用のテンプレートファイル
+template: /usr/lib/easy-pandoc-templates/html/elegant_bootstrap_menu.html
+
+# メタデータ
+metadata:
+  title: すごい記事
+  figureTitle: "図 "
+  tableTitle: "表 "
+  listingTitle: "コード "
+  figPrefix: "図."
+  eqnPrefix: "式."
+  tblPrefix: "表."
+  lstPrefix: "コード."
+
+# テンプレート変数
+variables:
+  indent: true
+
+table-of-contents: true
+toc-depth: 2
+
+number-sections: true
+
+standalone: true
+
+# 各種フィルタ
+filters:
+  - /usr/lib/numberring.lua
+  - /usr/lib/pandoc-crossref

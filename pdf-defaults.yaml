@@ -1,0 +1,55 @@
+# 入力ファイル (配列形式で指定)
+input-files:
+  - content.md
+  
+# 出力ファイル (単一アイテムで指定)
+output-file: content.pdf
+
+# --pdf-engine オプション
+pdf-engine: lualatex
+
+# メタデータ
+metadata:
+  title: すごい記事
+  figureTitle: "図 "
+  tableTitle: "表 "
+  listingTitle: "コード "
+  figPrefix: "図."
+  eqnPrefix: "式."
+  tblPrefix: "表."
+  lstPrefix: "コード."
+
+# テンプレート変数
+variables:
+  documentclass: ltjsarticle
+  classoption: pandoc
+  # 字下げ
+  indent: true
+  # 余白
+  geometry:
+    - top=20mm
+    - right=24mm
+    - left=24mm
+    - bottom=20mm
+    - heightrounded
+  # 採番接頭辞・接尾辞の追加
+  header-includes:
+    - \renewcommand{\thesection}{第\arabic{section}章}
+    - \renewcommand{\thesubsection}{第\arabic{subsection}節}
+    - \renewcommand{\thesubsubsection}{第\arabic{subsubsection}項}
+    
+
+# 目次
+table-of-contents: true
+# 目次出しの深さ
+toc-depth: 2
+
+# 見出しの採番
+number-sections: true
+
+# 単一ファイルで出力
+standalone: true
+
+# 各種フィルタ
+filters:
+  - /usr/lib/pandoc-crossref
